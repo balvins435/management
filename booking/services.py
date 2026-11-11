@@ -1,10 +1,10 @@
-"""Availability calculations shared by booking and resource endpoints."""
+#Availability calculations shared by booking and resource endpoints.
 
 from .models import Booking, BookingItem
 
-
+#  Return the highest approved quantity reserved during a date range.
 def reserved_quantity(resource, start_date, end_date, exclude_booking=None):
-    """Return the highest approved quantity reserved during a date range."""
+   
     items = BookingItem.objects.filter(
         resource=resource,
         booking__status=Booking.Status.APPROVED,
@@ -26,16 +26,16 @@ def reserved_quantity(resource, start_date, end_date, exclude_booking=None):
         highest = max(highest, current)
     return highest
 
-
+# Return the available quantity of a resource during a date range.
 def available_quantity(resource, start_date, end_date, exclude_booking=None):
-    """Return inventory that remains available throughout a date range."""
+
     return resource.total_quantity - reserved_quantity(
         resource, start_date, end_date, exclude_booking=exclude_booking
     )
 
-
+# Return the highest approved quantity reserved at any time for a resource.
 def maximum_reserved_quantity(resource):
-    """Return the resource's highest approved reservation at any time."""
+
     items = BookingItem.objects.filter(
         resource=resource, booking__status=Booking.Status.APPROVED
     ).select_related('booking')

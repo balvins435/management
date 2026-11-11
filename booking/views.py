@@ -1,4 +1,5 @@
-"""API views for creating and managing booking requests."""
+
+# API views for creating and managing booking requests
 
 from django.db import transaction
 from django.utils import timezone
