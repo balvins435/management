@@ -1,4 +1,4 @@
-# Equipment and Resource Management API
+# Resource Management API
 
 A Django REST Framework API for registering shared resources and handling booking requests. Employees request resources, while resource managers or admins approve and reject requests. Only approved bookings reserve inventory.
 
