@@ -1,4 +1,4 @@
-"""Routes for category and resource endpoints."""
+# API URLs for the resource app
 
 from rest_framework.routers import DefaultRouter
 

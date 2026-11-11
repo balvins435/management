@@ -1,6 +1,5 @@
 from django.utils.dateparse import parse_datetime
 from rest_framework import serializers, viewsets
-
 from booking.services import available_quantity
 from .filters import ResourceFilter
 from .models import Category, Resource
